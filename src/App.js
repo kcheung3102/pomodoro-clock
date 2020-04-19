@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect, useRef} from 'react';
 import './App.css';
+import TaskForm from './components/TaskForm';
+import Timer from './components/Timer';
 
-function App() {
+const App = () => {
+  const [taskVal, setTaskVal] = useState("")
+  const [breakVal, setBreakVal] = useState(5)
+  const [mode, setMode] = useState('session')
+  const [sessionVal, setSessionVal] = useState(25)
+  const [time, setTime] = useState(sessionVal * 60 * 1000)
+
+  //updates the input
+  const handleInput = (e) => {
+    setTaskVal(e.target.value);
+  }
+
+  const startTask = (e) => {
+    //check if the input is empty or not 
+    //starts the timer countdown
+  }
+
+  const stopTask = () => {
+    //when paused you stop the timer 
+  }
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <h1>Pomodoro Timer</h1>
       </header>
+        <TaskForm 
+        currentTask={[taskVal,setTaskVal]}
+        handleInput={handleInput}
+         />
+        <Timer currentTime={[time,setTime]} currentMode={[mode,setMode]}/>
     </div>
   );
 }
