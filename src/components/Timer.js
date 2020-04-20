@@ -7,7 +7,10 @@ import Moment from 'react-moment';
     return (
         <div>
             <h1>{mode}</h1>
-             <Moment format="mm:ss">{time}</Moment>
+            <h1>
+                <Moment format="mm:ss">{time}</Moment>
+            </h1>
+            
         </div>
     )
 }
