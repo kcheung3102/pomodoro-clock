@@ -4,12 +4,27 @@ import TaskForm from './components/TaskForm';
 import Timer from './components/Timer';
 import Controls from './components/Controls';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import TimerSet from './components/TimerController';
+import Grid from '@material-ui/core/Grid';
 
 import { useInterval } from './hooks/useInterval'
 
 
+const useStyles = makeStyles({
+
+  centerAlign: {
+    textAlign:'center',
+  },
+
+
+})
+
 
 const App = () => {
+  const classes = useStyles();
+
   const [taskVal, setTaskVal] = useState("")
   const [breakVal, setBreakVal] = useState(5)
   const [mode, setMode] = useState('session')
@@ -27,32 +42,47 @@ const App = () => {
     setTaskVal(input);
   }
 
-  
+  const addTask = (e) => {
+    if(e.key === "Enter") {
+
+    }
+  }
+
+  useEffect(() => {
+    //when the time equals 0 and mode is session
+    //play the sound
+    //you set it to break and the state of the break value
+    //ask if the task was completed or not
+
+    //if it is on break mode and time reaches 0
+    //play the sound
+    //reset the timer back to default state 
+
+    if(time === 0 && mode === 'session') {
+      setMode('break')
+
+      //play sound
+
+      setTime(breakVal * 60 * 1000)
+    } else if (time === 0 && mode === 'break') {
+      setMode('session')
+      setTime(sessionVal * 60 * 1000)
+    }
+  }, [time, sessionVal, breakVal, mode])
+
+  //updates the session value time
   useEffect(() => {
     setTime(sessionVal * 60 * 1000)
   }, [sessionVal])
 
 
-  // const startTask = (e) => {
-  //   if(e.key === "Enter") {
-  //     e.taskVal.trim() === "" ||  e.taskVal.trim().length === 0 ?
-  //        alert("Please Enter in a Task")
-  //     : 
-  //   }
-  
-  // }
 
-  const stopTask = () => {
-    //when paused you stop the timer 
-  }
 
   const handleStart = () => {
     //when paused you stop the timer 
   }
 
-  const handleStop = () => {
-    setTimerRunning(false);
-  }
+
   
   const handleReset = () => {
       setMode('session');
@@ -62,7 +92,8 @@ const App = () => {
   }
   
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth='sm' className={classes.background}>
+      <Box className={classes.centerAlign}>
       <header className="App-header">
           <h1>Pomodoro Timer</h1>
       </header>
@@ -76,6 +107,15 @@ const App = () => {
         handleReset={handleReset}
 
          />
+        <Grid container >
+          <Grid item xs={6}>
+          <TimerSet type={'session'} value={[sessionVal, setSessionVal]}/>
+          </Grid>
+         <Grid item xs={6}>
+         <TimerSet type={'break'} value={[breakVal, setBreakVal]}/>
+         </Grid>
+         </Grid>
+      </Box>
     </Container>
   );
 }

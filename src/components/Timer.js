@@ -6,7 +6,7 @@ import Moment from 'react-moment';
     const [mode] = currentMode
     return (
         <div>
-            <h1>{mode}</h1>
+            <h1>{mode === 'session' ? 'Session' : 'Break'}</h1>
             <h1>
                 <Moment format="mm:ss">{time}</Moment>
             </h1>
