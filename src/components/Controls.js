@@ -15,12 +15,13 @@ const useStyles = makeStyles((theme) => ({
  
   }));
 
-const Controls = ({activeStatus, handleReset}) => {
+const Controls = ({activeStatus, handleReset, disabledButton}) => {
     const [timerRunning, setTimerRunning] = activeStatus
+    const [disabled, setDisabled] = disabled
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Fab color="primary" aria-label="play" onClick={() => setTimerRunning(!timerRunning)}>
+            <Fab color="primary" aria-label="play" disabled={disabled} onClick={() => setTimerRunning(!timerRunning)}>
                 {timerRunning ? <PauseIcon/> : <PlayArrowIcon /> }
             </Fab>
             <Fab color="primary" aria-label="play" onClick={handleReset}>

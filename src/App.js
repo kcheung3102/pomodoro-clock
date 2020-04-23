@@ -37,6 +37,10 @@ const useStyles = makeStyles({
     },
     padding: {
       padding: '20px',
+    },
+    container: {
+      paddingTop: '15rem',
+      alignItems: 'center',
     }
   
 
@@ -69,21 +73,27 @@ const App = () => {
 
   const handleNewTask = (e) => {
     e.preventDefault();
-
     //prevents the user from entering empty strings
     if(taskVal.trim() === '' || taskVal.trim().length === 0) return
     setTasks([...tasks, {id: Date.now(), text: taskVal }])
-
+    setDisabled(!disabled);
+    //display the current task that was entered
+    //enable the buttons to be used
      //resets the form
-     setTaskVal(" ");
+    setTaskVal('');
   
   }
 
-    const deleteTask = (taskId) => {
-      const newTasks = tasks.filter((_,id) => id !== taskId);
 
+ 
+
+    const deleteTask = (taskId) => {
+      //filters out and finds if the task
+      const newTasks = tasks.filter((_,id) => id !== taskId);
       setTasks(newTasks);
     }
+
+    
   
 
   useEffect(() => {
@@ -116,7 +126,7 @@ const App = () => {
 
  
 
-  
+  //updates to default setup
   const handleReset = () => {
       setMode('session');
       setBreakVal(5);
@@ -126,8 +136,15 @@ const App = () => {
 
   return (
     <div className={classes.background}>
-      <Container>
-          <Grid  container spacing={4}>
+     <header className="App-header">
+                  <h1>Pomodoro Timer</h1>
+              </header>
+      <Container className={classes.container}>
+          <Grid  
+            container  
+            direction="row"
+            justify="space-around"
+            spacing={4}>
             <Grid item xs={4}>
               <Card className={classes.cardWrapper}>
                 <Grid
@@ -150,14 +167,11 @@ const App = () => {
             <Grid item xs={5}>
               <Card className={classes.root} variant='outlined'>
                 <Box className={classes.centerAlign}>
-              <header className="App-header">
-                  <h1>Pomodoro Timer</h1>
-              </header>
-                <TaskCurrent />
                 <Timer currentTime={[time,setTime]} currentMode={[mode,setMode]}/>
                 <Controls
                 activeStatus={[timerRunning, setTimerRunning]}
                 handleReset={handleReset}
+                disabledButton={[disabled,setDisabled]}
                 />
                   <Grid container >
                     <Grid item xs={6}>
