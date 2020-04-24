@@ -37,7 +37,6 @@ export default function TaskForm({ handleInput, handleNewTask, currentTask }) {
                 id="outlined-basic" 
                 label="Enter Task" 
                 variant="outlined" 
-                color="secondary"
                 value={task}
                 onChange={handleInput}
                 />

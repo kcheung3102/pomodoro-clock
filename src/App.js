@@ -24,6 +24,9 @@ const useStyles = makeStyles({
   },
     root: {
       minWidth: 500,
+      backgroundColor:'#292f38',
+      boxShadow: '0 15px 30px rgba(0, 0, 0, 0.4)',
+      color: 'white',
     },
     background: {
       background:'linear-gradient(100deg, rgb(182, 40, 111) 50%, #ac2066 0)',
@@ -152,7 +155,7 @@ const App = () => {
      <header className="App-header">
                   <h1>Pomodoro Timer</h1>
       </header>
-      <Container className={classes.container} maxWidth="lg">
+      <Container className={classes.container} fixed>
           <Grid  
             container  
             direction="row"
@@ -178,7 +181,7 @@ const App = () => {
               </Card>
             </Grid>
             <Grid item xs={5}>
-              <Card className={classes.root} variant='outlined'>
+              <Card className={classes.root}>
                 <Box className={classes.centerAlign}>
                 <Timer currentTime={[time,setTime]} currentMode={[mode,setMode]}/>
                 <Controls
