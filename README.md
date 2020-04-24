@@ -34,7 +34,7 @@ npm start
 4. Enjoy!
 
 ## Problems and Thought Process
-Before I started to code the project I listed out the necessary components that my program would need to find the solution for. 
+Before I started to code the project I listed out the necessary components that my program would need to find the solution for. During this challenge, I focused mainly on the front end because the application was alot of UI interactions.
 
 * Needed Logic/Components:
      
@@ -42,7 +42,7 @@ Before I started to code the project I listed out the necessary components that 
      
      -Starting and Stopping the timer
      
-     -Countdown Timer
+     -Timer
      
      -Task Form for user input
      
@@ -62,9 +62,10 @@ Before I started to code the project I listed out the necessary components that 
 * User can change the session length and break length
 
 ## Built With
-* [React](https://reactjs.org/)
+* [React](https://reactjs.org/)- Front End Library 
 
-* [Material Ui](https://material-ui.com/)
+* [Material Ui](https://material-ui.com/) - React UI Framework
 
 ## Credits
 * Sound Effects from [Sound Bible](http://soundbible.com)
+* Custom Hook by [Francais](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)
