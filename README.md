@@ -33,6 +33,25 @@ npm start
 ```
 4. Enjoy!
 
+## Problems and Thought Process
+Before I started to code the project I listed out the necessary components that my program would need to find the solution for. 
+
+* Needed Logic/Components:
+     
+     -User Input before timer could be started
+     
+     -Starting and Stopping the timer
+     
+     -Countdown Timer
+     
+     -Task Form for user input
+     
+     -Task list for listing user input
+     
+     -Mode for switching from session to break after the timer is up
+     
+     -Alerts the user when timer is up
+
 ## Features List
 * Start/Stop Timer
 
