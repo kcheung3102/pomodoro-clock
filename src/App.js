@@ -9,10 +9,10 @@ import Box from '@material-ui/core/Box';
 import TimerSet from './components/TimerController';
 import Grid from '@material-ui/core/Grid';
 import TaskList from './components/TaskList';
-import TaskCurrent from './components/TaskCurrent';
 import Card from '@material-ui/core/Card';
 
-import { useInterval } from './hooks/useInterval'
+import alarm from './sound/watch-alarm.mp3';
+import { useInterval } from './hooks/useInterval';
 
 
 const useStyles = makeStyles({
@@ -59,6 +59,7 @@ const App = () => {
   const [time, setTime] = useState(sessionVal * 60 * 1000)
   const [timerRunning, setTimerRunning] = useState(false)
   const [disabled, setDisabled] = useState(false);
+  const beep = useRef();
 
     //countdown using custom hook
     useInterval(() => setTime(time - 1000), timerRunning ? 1000 : null)
@@ -73,22 +74,25 @@ const App = () => {
 
   const handleNewTask = (e) => {
     e.preventDefault();
+    
     //prevents the user from entering empty strings
     if(taskVal.trim() === '' || taskVal.trim().length === 0) return
     setTasks([...tasks, {id: Date.now(), text: taskVal }])
-    setDisabled(!disabled);
-    //display the current task that was entered
-    //enable the buttons to be used
+    
+    //enables the button
+    setDisabled(true);
+  
+    
      //resets the form
     setTaskVal('');
-  
-  }
+   }
 
 
  
 
     const deleteTask = (taskId) => {
       //filters out and finds if the task
+      //if tasks are empty then you disable the button 
       const newTasks = tasks.filter((_,id) => id !== taskId);
       setTasks(newTasks);
     }
@@ -99,7 +103,7 @@ const App = () => {
   useEffect(() => {
     //when the time equals 0 and mode is session
     //play the sound
-    //you set it to break and the state of the break value
+    //set mode to break and then setTime to the break val
     //ask if the task was completed or not
 
     //if it is on break mode and time reaches 0
@@ -107,15 +111,14 @@ const App = () => {
     //reset the timer back to default state 
 
     if(time === 0 && mode === 'session') {
-      alert("Do you finish your task?")
+      beep.current.play()
       setMode('break')
-
-      //play sound
-
-      setTime(breakVal * 60 * 1000)
+      setTime(breakVal * 60  * 1000)
     } else if (time === 0 && mode === 'break') {
+      beep.current.play()
       setMode('session')
       setTime(sessionVal * 60 * 1000)
+      alert("Break Time is up!")
     }
   }, [time, sessionVal, breakVal, mode])
 
@@ -130,8 +133,11 @@ const App = () => {
   const handleReset = () => {
       setMode('session');
       setBreakVal(5);
+      setTimerRunning(false);
       setSessionVal(25);
       setTime(sessionVal * 60 * 1000);
+      beep.current.pause()
+      beep.current.currentTime = 0;
   }
 
   return (
@@ -186,6 +192,12 @@ const App = () => {
             </Grid> 
         </Grid>
       </Container>
+      <audio
+                id='beep'
+                ref={beep}
+                src={alarm}
+                type='audio'
+            ></audio>
     </div>
 
   );
