@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import './App.css';
 import TaskForm from './components/TaskForm';
 import Timer from './components/Timer';
 import Controls from './components/Controls';
@@ -11,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 
 
 import alarm from './sound/watch-alarm.mp3';
@@ -46,10 +48,11 @@ const useStyles = makeStyles({
     container: {
       paddingTop: '15rem',
       alignItems: 'center',
+    },
+    title: {
+      textAlign:'center',
+      lineHeight: '1',
     }
-  
-
-
 })
 
 
@@ -157,9 +160,9 @@ const App = () => {
 
   return (
     <div className={classes.background}>
-     <header className="App-header">
-                  <h1>Pomodoro Timer</h1>
-      </header>
+      <Typography variant="h1" component="h2" gutterBottom className={classes.title}>
+          Pomodoro Timer
+      </Typography>
       <Container className={classes.container} fixed>
           <Grid  
             container  

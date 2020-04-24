@@ -27,7 +27,9 @@ const TimerController = ({type, value}) => {
       }
     return (
         <div>
-        <h1>{type}</h1>
+        <Typography variant="h5"  gutterBottom>
+            {type + " length "}
+        </Typography>
         <Grid
             container
             direction="row"
