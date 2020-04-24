@@ -36,7 +36,7 @@ npm start
 4. Enjoy!
 
 ## Problems and Thought Process
-Before I started to code the project I listed out the necessary components that my program would need to find the solution for. During this challenge, I focused mainly on the front end because the application was alot of UI interactions.
+Before I started to code the project I listed out the necessary components that my program would need to find the solution for. During this challenge, I focused mainly on the front end because the application involved alot of UI interactions.
 
 * Needed Logic/Components:
      
@@ -67,6 +67,8 @@ Before I started to code the project I listed out the necessary components that 
 * [React](https://reactjs.org/)- Front End Library 
 
 * [Material Ui](https://material-ui.com/) - React UI Framework
+
+* Deployed on [Netlify](https://www.netlify.com/)
 
 ## Credits
 * Sound Effects from [Sound Bible](http://soundbible.com)
