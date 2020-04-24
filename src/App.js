@@ -1,15 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
-import './App.css';
 import TaskForm from './components/TaskForm';
 import Timer from './components/Timer';
 import Controls from './components/Controls';
+import TimerSet from './components/TimerController';
+import TaskList from './components/TaskList';
+import Popup from './components/Popup';
+
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import TimerSet from './components/TimerController';
 import Grid from '@material-ui/core/Grid';
-import TaskList from './components/TaskList';
 import Card from '@material-ui/core/Card';
+
 
 import alarm from './sound/watch-alarm.mp3';
 import { useInterval } from './hooks/useInterval';
@@ -51,6 +53,7 @@ const useStyles = makeStyles({
 const App = () => {
   const classes = useStyles();
 
+  const [open, setOpen] = useState(false);
   const [tasks, setTasks] = useState([])
   const [taskVal, setTaskVal] = useState("")
   const [breakVal, setBreakVal] = useState(5)
@@ -112,14 +115,15 @@ const App = () => {
       beep.current.play()
       setMode('break')
       setTime(breakVal * 60  * 1000)
+      setOpen(true)
       setTimerRunning(false)
     } else if (time === 0 && mode === 'break') {
       beep.current.play()
       setMode('session')
       setTime(sessionVal * 60 * 1000)
-      alert("Break Time is up!")
     }
   }, [time, sessionVal, breakVal, mode])
+
 
   //updates the session value time
   useEffect(() => {
@@ -127,7 +131,6 @@ const App = () => {
   }, [sessionVal])
 
  
-
   //updates to default setup
   const handleReset = () => {
       setMode('session');
@@ -139,12 +142,17 @@ const App = () => {
       beep.current.currentTime = 0;
   }
 
+  //handling close for popup
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (
     <div className={classes.background}>
      <header className="App-header">
                   <h1>Pomodoro Timer</h1>
-              </header>
-      <Container className={classes.container}>
+      </header>
+      <Container className={classes.container} maxWidth="lg">
           <Grid  
             container  
             direction="row"
@@ -197,6 +205,10 @@ const App = () => {
                 src={alarm}
                 type='audio'
             ></audio>
+            <Popup  
+            handleClose={handleClose} 
+            handleOpen={[open, setOpen]}  
+            />
     </div>
 
   );
