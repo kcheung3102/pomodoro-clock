@@ -38,7 +38,7 @@ npm start
 
 * Able to add and delete tasks
 
-* Rings a bell and displays a notification when your 25 minutes are over
+* Rings a bell and displays notifications when the session and break time is over
 
 * User can change the session length and break length
 
