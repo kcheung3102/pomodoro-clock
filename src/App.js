@@ -126,6 +126,8 @@ const App = () => {
       setMode('session')
       setTime(sessionVal * 60 * 1000)
       setDisabled(false)
+      setTimerRunning(false)
+      setSessionVal(25)
     }
   }, [time, sessionVal, breakVal, mode, open, disabled])
 
