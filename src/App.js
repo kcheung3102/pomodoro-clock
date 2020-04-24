@@ -120,12 +120,14 @@ const App = () => {
       setTime(breakVal * 60  * 1000)
       setOpen(true)
       setTimerRunning(false)
+      setSessionVal(breakVal)
     } else if (time === 0 && mode === 'break') {
       beep.current.play()
       setMode('session')
       setTime(sessionVal * 60 * 1000)
+      setDisabled(false)
     }
-  }, [time, sessionVal, breakVal, mode])
+  }, [time, sessionVal, breakVal, mode, open, disabled])
 
 
   //updates the session value time
@@ -145,9 +147,10 @@ const App = () => {
       beep.current.currentTime = 0;
   }
 
-  //handling close for popup
+  
   const handleClose = () => {
     setOpen(false);
+    setTimerRunning(true);
   }
 
   return (
@@ -159,8 +162,7 @@ const App = () => {
           <Grid  
             container  
             direction="row"
-            justify="space-around"
-            spacing={4}>
+            justify="space-around">
             <Grid item xs={4}>
               <Card className={classes.cardWrapper}>
                 <Grid
