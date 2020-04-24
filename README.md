@@ -49,4 +49,3 @@ npm start
 
 ## Credits
 * Sound Effects from [Sound Bible](http://soundbible.com)
-* Custom Hook from 
