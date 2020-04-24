@@ -43,9 +43,8 @@ const TaskList = ({tasks, deleteTask}) => {
                     <ListItemSecondaryAction>
                         <IconButton
                             aria-label="Delete"
-                            onClick={() => {
-                            deleteTask(task.id);
-                            }}
+                            onClick={() => deleteTask(task.id)}
+                            
                         >
                         <DeleteIcon />
                     </IconButton>

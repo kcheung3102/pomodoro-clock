@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Controls = ({activeStatus, handleReset, disabledButton}) => {
     const [timerRunning, setTimerRunning] = activeStatus
-    const [disabled, setDisabled] = disabledButton
+    const [disabled] = disabledButton
     const classes = useStyles();
 
     return (

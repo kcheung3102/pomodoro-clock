@@ -90,11 +90,9 @@ const App = () => {
 
  
 
-    const deleteTask = (taskId) => {
-      //filters out and finds if the task
-      //if tasks are empty then you disable the button 
-      const newTasks = tasks.filter((_,id) => id !== taskId);
-      setTasks(newTasks);
+    const deleteTask = (id) => {
+      //looks at each task and only returns if task.id is not equal to the id being passed in
+      setTasks(tasks.filter((task) => task.id !== id))
     }
 
     
@@ -114,6 +112,7 @@ const App = () => {
       beep.current.play()
       setMode('break')
       setTime(breakVal * 60  * 1000)
+      setTimerRunning(false)
     } else if (time === 0 && mode === 'break') {
       beep.current.play()
       setMode('session')
@@ -165,7 +164,7 @@ const App = () => {
                   />
                 <TaskList 
                   tasks={tasks}
-                  deleteTask = {deleteTask}
+                  deleteTask={deleteTask}
                 />
                 </Grid>
               </Card>
