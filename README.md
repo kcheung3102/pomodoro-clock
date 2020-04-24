@@ -2,7 +2,7 @@
 
 [Live Project](https://kcheung3102-pomodoroclock.netlify.app)
 
-A react productivity application that lets users break down work and break intervals
+A react productivity application that lets users break down tasks into work and breaks intervals
 ![image](https://user-images.githubusercontent.com/44646134/80221168-e6ec4a80-8612-11ea-98e1-f2712a1d1b45.png)
 
 
