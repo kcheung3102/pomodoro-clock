@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pomodoro-clock/static/css/main.e1202080.chunk.css",
+    "main.js": "/pomodoro-clock/static/js/main.80de141b.chunk.js",
+    "main.js.map": "/pomodoro-clock/static/js/main.80de141b.chunk.js.map",
+    "runtime-main.js": "/pomodoro-clock/static/js/runtime-main.21255daa.js",
+    "runtime-main.js.map": "/pomodoro-clock/static/js/runtime-main.21255daa.js.map",
+    "static/js/2.f0481e1c.chunk.js": "/pomodoro-clock/static/js/2.f0481e1c.chunk.js",
+    "static/js/2.f0481e1c.chunk.js.map": "/pomodoro-clock/static/js/2.f0481e1c.chunk.js.map",
+    "index.html": "/pomodoro-clock/index.html",
+    "precache-manifest.cea658d11e626b8c71faa5f39ff88525.js": "/pomodoro-clock/precache-manifest.cea658d11e626b8c71faa5f39ff88525.js",
+    "service-worker.js": "/pomodoro-clock/service-worker.js",
+    "static/css/main.e1202080.chunk.css.map": "/pomodoro-clock/static/css/main.e1202080.chunk.css.map",
+    "static/js/2.f0481e1c.chunk.js.LICENSE.txt": "/pomodoro-clock/static/js/2.f0481e1c.chunk.js.LICENSE.txt",
+    "static/media/watch-alarm.mp3": "/pomodoro-clock/static/media/watch-alarm.f3e1419d.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.21255daa.js",
+    "static/js/2.f0481e1c.chunk.js",
+    "static/css/main.e1202080.chunk.css",
+    "static/js/main.80de141b.chunk.js"
+  ]
+}
