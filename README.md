@@ -66,7 +66,6 @@ Before I started to code the project I listed out the necessary components that 
 
 * [Material Ui](https://material-ui.com/) - React UI Framework
 
-* Deployed on [Netlify](https://www.netlify.com/)
 
 ## Credits
 * Sound Effects from [Sound Bible](http://soundbible.com)
